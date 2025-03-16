@@ -4,13 +4,9 @@ public class Swirl : LeafState
 {
     private CustomRigidbody _customRB = null;
 
-    // Controls the radius of the circular motion for X/Y axis.
-    private Vector2 _radius = new Vector2(20f, 20f);
     // Controls the direction/speed the spiral translates
     private Vector2 _linearVelocity = Vector2.zero;
 
-    // Controls the rotational speed of the spiral.
-    private float _angularVelocity = 0.5f;
     private float _timeScale = 5f;
     private float _timer = 0;
     private float _completedRotations = 0;
@@ -34,7 +30,7 @@ public class Swirl : LeafState
         _timer += _timeScale * Time.fixedDeltaTime;
 
         // Calculate the angle at this time.
-        float angle = _angularVelocity * _timer;
+        float angle = _leaf.Data.AngularVelocity * _timer;
 
         if (angle >= _completedRotations * Mathf.PI)
         {
@@ -43,7 +39,7 @@ public class Swirl : LeafState
         }
 
         // Calculate the circular motion.
-        Vector2 swirlMotion = new Vector2(Mathf.Cos(angle) * _radius.x, Mathf.Sin(angle) * _radius.y);
+        Vector2 swirlMotion = new Vector2(Mathf.Cos(angle) * _leaf.Data.Radius.x, Mathf.Sin(angle) * _leaf.Data.Radius.y);
 
         // Apply the velocity to the custom Rigidbody.
         _customRB.SetVelocity(_linearVelocity + swirlMotion);

@@ -4,7 +4,6 @@ public class Drag : LeafState
 {
     private Vector3 _lastMousePosition = Vector3.zero;
     private Vector3 _swipeVelocity = Vector3.zero;
-    private float _throwDamping = 0.07f; // Reduce how far the leaf is thrown
 
     private CustomRigidbody _customRB = null;
 
@@ -47,6 +46,6 @@ public class Drag : LeafState
     public override void ExitState()
     {
         _customRB.UseGravity = true;
-        _customRB.SetVelocity(_swipeVelocity * _throwDamping);
+        _customRB.SetVelocity(_swipeVelocity * _leaf.Data.ThrowDamping);
     }
 }

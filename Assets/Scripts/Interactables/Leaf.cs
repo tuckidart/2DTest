@@ -3,16 +3,22 @@ using UnityEngine;
 public class Leaf : Interactable
 {
     [SerializeField]
-    private AudioSource _audioSource = null;
+    private LeafData _data = null;
+    public LeafData Data => _data;
 
     [SerializeField]
     private CustomRigidbody _customRigidbody = null;
     public CustomRigidbody CustomRigidbody => _customRigidbody;
-    public Vector3 Position => transform.position;
 
-    public float RandomAngularVelocity = 500f;
-    public float SwayFrequency = 2f;
-    public float SwayAmplitude = 10f;
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer = null;
+
+    [Space]
+
+    [SerializeField]
+    private AudioSource _audioSource = null;
+
+    public Vector3 Position => transform.position;
 
     private LeafState _leafState = null;
     private Idle _idle = null;
@@ -23,6 +29,8 @@ public class Leaf : Interactable
 
     private void Start()
     {
+        _spriteRenderer.sprite = _data.Sprite;
+
         _idle = new Idle();
         _hover = new Hover();
         _drag = new Drag();

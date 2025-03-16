@@ -3692,6 +3692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2349b90c4fe1bf04787c3233baf4d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1164168661 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6482142319835845739, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
+  m_PrefabInstance: {fileID: 1566376639}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1184148544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4771,6 +4776,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaf
       objectReference: {fileID: 0}
+    - target: {fileID: 3795807344109048985, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: dbf7125a12c926d4d9f0c2e0c6cff0f6, type: 2}
+    - target: {fileID: 3795807344109048985, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1164168661}
     - target: {fileID: 7924148450285986644, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
       propertyPath: Loop
       value: 1
