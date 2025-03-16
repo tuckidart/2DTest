@@ -68,6 +68,19 @@ public class Movement : LeafState
             _leaf.transform.position = new Vector3(_leaf.Position.x, Constants.MaxHeight, _leaf.Position.z);
             _customRB.SetVelocity(new Vector3(_customRB.GetVelocity().x, 0, 0)); // Stop upward movement
         }
+
+        float windVolume = 0;
+
+        if (_customRB.GetVelocity().x < 0)
+        {
+            windVolume = Utils.ScaleRange(-15, 0f, 0.5f, 0f, _customRB.GetVelocity().x);
+        }
+        else
+        {
+            windVolume = Utils.ScaleRange(0, 15f, 0f, 0.5f, _customRB.GetVelocity().x);
+        }
+
+        _leaf.AdjustWindVolume(windVolume);
     }
 
     public override void ExitState()
@@ -75,5 +88,6 @@ public class Movement : LeafState
         _customRB.SetVelocity(Vector3.zero);
         _customRB.SetAngularVelocity(Vector3.zero);
         _customRB.UseGravity = false;
+        _leaf.AdjustWindVolume(0f);
     }
 }

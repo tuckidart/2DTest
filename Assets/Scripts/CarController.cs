@@ -6,13 +6,17 @@ public class CarController : MonoBehaviour
     private Leaf _leaf = null;
     [SerializeField]
     private float _timeToRelocate = 30f;
+    [SerializeField]
+    private AudioSource _audioSource = null;
 
     private float _carSpeed = 25f;
     private float _timer = 0f;
 
+    private bool _passed = false;
+
     private void Start()
     {
-        _timer = _timeToRelocate;
+        RelocateCar();
     }
 
     // Update is called once per frame
@@ -30,15 +34,22 @@ public class CarController : MonoBehaviour
 
         transform.position += Vector3.right * Time.deltaTime * _carSpeed;
 
-        if (Vector2.Distance(transform.position, _leaf.Position) < 10 && transform.position.x > _leaf.Position.x)
+        if (transform.position.x >= _leaf.Position.x && !_passed)
         {
-            _leaf.ChangeState(ELeafState.SWIRL);
+            _audioSource.Play();
+            _passed = true;
+
+            if (Vector2.Distance(transform.position, _leaf.Position) < 10)
+            {
+                _leaf.ChangeState(ELeafState.SWIRL);
+            }
         }
     }
 
     private void RelocateCar()
     {
-        transform.position = new Vector3(_leaf.Position.x - 30f, transform.position.y, transform.position.z);
+        transform.position = new Vector3(_leaf.Position.x - 120f, transform.position.y, transform.position.z);
         _timer = _timeToRelocate;
+        _passed= false;
     }
 }

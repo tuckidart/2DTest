@@ -3,6 +3,9 @@ using UnityEngine;
 public class Leaf : Interactable
 {
     [SerializeField]
+    private AudioSource _audioSource = null;
+
+    [SerializeField]
     private CustomRigidbody _customRigidbody = null;
     public CustomRigidbody CustomRigidbody => _customRigidbody;
     public Vector3 Position => transform.position;
@@ -81,5 +84,10 @@ public class Leaf : Interactable
         {
             ChangeState(ELeafState.MOVEMENT);
         }
+    }
+
+    public void AdjustWindVolume(float volume)
+    {
+        _audioSource.volume = volume;
     }
 }
