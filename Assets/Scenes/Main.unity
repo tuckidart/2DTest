@@ -4781,9 +4781,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: dbf7125a12c926d4d9f0c2e0c6cff0f6, type: 2}
     - target: {fileID: 3795807344109048985, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
+      propertyPath: SwayAmplitude
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795807344109048985, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
+      propertyPath: SwayFrequency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795807344109048985, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 1164168661}
+    - target: {fileID: 3795807344109048985, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
+      propertyPath: RandomAngularVelocity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7924148450285986644, guid: 489ba8d3dbeb14e47baee10c475eb08a, type: 3}
       propertyPath: Loop
       value: 1

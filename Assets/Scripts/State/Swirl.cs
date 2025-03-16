@@ -30,7 +30,7 @@ public class Swirl : LeafState
         _timer += _timeScale * Time.fixedDeltaTime;
 
         // Calculate the angle at this time.
-        float angle = _leaf.Data.AngularVelocity * _timer;
+        float angle = _leaf.AngularVelocity * _timer;
 
         if (angle >= _completedRotations * Mathf.PI)
         {
@@ -39,7 +39,7 @@ public class Swirl : LeafState
         }
 
         // Calculate the circular motion.
-        Vector2 swirlMotion = new Vector2(Mathf.Cos(angle) * _leaf.Data.Radius.x, Mathf.Sin(angle) * _leaf.Data.Radius.y);
+        Vector2 swirlMotion = new Vector2(Mathf.Cos(angle) * _leaf.Radius.x, Mathf.Sin(angle) * _leaf.Radius.y);
 
         // Apply the velocity to the custom Rigidbody.
         _customRB.SetVelocity(_linearVelocity + swirlMotion);

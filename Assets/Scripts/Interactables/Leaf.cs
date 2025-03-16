@@ -4,7 +4,6 @@ public class Leaf : Interactable
 {
     [SerializeField]
     private LeafData _data = null;
-    public LeafData Data => _data;
 
     [SerializeField]
     private CustomRigidbody _customRigidbody = null;
@@ -20,6 +19,17 @@ public class Leaf : Interactable
 
     public Vector3 Position => transform.position;
 
+    [Space]
+    [Space]
+
+    //The variables the model gives us to control
+    public float RandomAngularVelocity = 0f;
+    public float SwayFrequency = 0f;
+    public float SwayAmplitude = 0f;
+    public float ThrowDamping = 0f;
+    public float AngularVelocity = 0f;
+    public Vector2 Radius = Vector2.zero;
+
     private LeafState _leafState = null;
     private Idle _idle = null;
     private Hover _hover = null;
@@ -29,7 +39,17 @@ public class Leaf : Interactable
 
     private void Start()
     {
+        //The LeafData is the model and this(Leaf) is the controller
+        //Sprite should be in a LeafView to complete the MVC, but since it's only a single sprite for now, let's keep it here.
+
         _spriteRenderer.sprite = _data.Sprite;
+        RandomAngularVelocity = _data.RandomAngularVelocity;
+        SwayFrequency = _data.SwayFrequency;
+        SwayAmplitude = _data.SwayAmplitude;
+        ThrowDamping = _data.ThrowDamping;
+        AngularVelocity = _data.AngularVelocity;
+        Radius = _data.Radius;
+
 
         _idle = new Idle();
         _hover = new Hover();

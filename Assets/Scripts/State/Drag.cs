@@ -46,6 +46,6 @@ public class Drag : LeafState
     public override void ExitState()
     {
         _customRB.UseGravity = true;
-        _customRB.SetVelocity(_swipeVelocity * _leaf.Data.ThrowDamping);
+        _customRB.SetVelocity(_swipeVelocity * _leaf.ThrowDamping);
     }
 }

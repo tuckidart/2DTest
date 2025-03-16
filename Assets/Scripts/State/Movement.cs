@@ -45,7 +45,7 @@ public class Movement : LeafState
         }
 
         // Apply a periodic sway motion to simulate a leaf fluttering
-        float sway = Mathf.Sin(Time.time * _leaf.Data.SwayFrequency) * _leaf.Data.SwayAmplitude;
+        float sway = Mathf.Sin(Time.time * _leaf.SwayFrequency) * _leaf.SwayAmplitude;
         _customRB.AddForce(new Vector3(sway, 0, 0), ForceMode2D.Force);
 
         // Smoothly rotate the leaf towards wind direction
@@ -53,7 +53,7 @@ public class Movement : LeafState
         _leaf.transform.rotation = Quaternion.Euler(0, 0, smoothedRotationZ);
 
         // Add small random velocity to make the leaf rotate slightly
-        float randomAngularVel = (Random.value - 0.5f) * _leaf.Data.RandomAngularVelocity;
+        float randomAngularVel = (Random.value - 0.5f) * _leaf.RandomAngularVelocity;
         _customRB.SetAngularVelocity(new Vector3(0, 0, randomAngularVel));
 
         // Apply drag to the linear velocity (slow down if moving too fast)
