@@ -1,5 +1,4 @@
 using Cinemachine;
-using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>

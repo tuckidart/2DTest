@@ -73,7 +73,7 @@ public class Movement : LeafState
 
         if (_customRB.GetVelocity().x < 0)
         {
-            windVolume = Utils.ScaleRange(-15, 0f, 0.5f, 0f, _customRB.GetVelocity().x);
+            windVolume = Utils.ScaleRange(-15f, 0f, 0.5f, 0f, _customRB.GetVelocity().x);
         }
         else
         {
